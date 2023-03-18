@@ -1,0 +1,21 @@
+.profile__job-title {
+    margin: 0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+@media screen and (max-width: 1023px) {
+    .profile__job-title {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 36px;
+    }
+}
+
+@media screen and (max-width: 659px) {
+    .profile__job-title {
+    margin-bottom: 36px;
+    }
+}

@@ -1,0 +1,5 @@
+.content__link {
+    display: flex;
+    align-self: center;
+    cursor: pointer;
+}

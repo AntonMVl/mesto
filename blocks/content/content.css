@@ -1,0 +1,15 @@
+.content {
+    margin: 0 auto;
+    padding-top: 47.25px;
+    padding-bottom: 67px;
+    max-width: 880px;
+    
+
+}
+
+@media screen and (max-width: 1023px) {
+    .content {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+}
