@@ -8,4 +8,10 @@
     
 }
 
+@media screen and (max-width: 659px) {
+    .profile__content-button {
+        width: 100%;
+    }
+}
+
 
