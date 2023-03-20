@@ -6,82 +6,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./pages/index.css">
     <title>Mesto</title>
-    <script src="./index.js" defer></script>
+    <script src="./scripts/index.js" defer></script>
 </head>
 <body class="body">
     <div class="page">
         <header class="header">
-            <img class="header__logo" src="./images/icons/header-logo.png" alt="Место">
+            <img class="header__logo" src="./images/icons/header-logo.svg" alt="Место">
         </header>
         <section class="profile">
             <img class="profile__image" src="./images/user-image.jpg" alt="Аватар">
             <div class="profile__user-info">
                 <div class="profile__input-info">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <button class="profile__editing-button profile__editing-button-link link"><img class="profile__editing-img" src="./images/icons/Vector.png" alt="Редактирование профиля"></button>
+                    <button type="button" class="profile__editing-button link"><img class="profile__editing-img" src="./images/icons/Vector.png" alt="Редактирование профиля"></button>
                 </div>
             <p class="profile__job-title">Исследователь океана</p>
             </div>
-            <button class="profile__content-button link" href="#"><img class="profile__content-img" src="./images/icons/plus.png" alt="Кнопка добавления контента"></button>
+            <button type="button" class="profile__content-button link"><img class="profile__content-img" src="./images/icons/plus.png" alt="Кнопка добавления контента"></button>
         </section>
-        <main class="content">
-            <ul class="content__box-list">
-            <li class="content__box">
-                <img class="content__image" src="./images/Карачаевск.jpg" alt="Карачаевск">
-                <div class="content__info">
-                    <h2 class="content__title">Карачаевск</h2>
-                    <button class="content__link"><img class="content__like-img link" src="./images/icons/Vector.svg" alt="Лайк"></button>
-                </div>
-            </li>
-            <li class="content__box">
-                <img class="content__image" src="./images/Эльбрус.jpg" alt="Эльбрус">
-                <div class="content__info">
-                    <h2 class="content__title">Гора Эльбрус</h2>
-                    <button class="content__link"><img class="content__like-img link" src="./images/icons/Vector.svg" alt="Лайк"></button>
-                </div>
-            </li>
-            <li class="content__box">
-                <img class="content__image" src="./images/Домбай.jpg" alt="Домбай">
-                <div class="content__info">
-                    <h2 class="content__title">Домбай</h2>
-                    <button class="content__link"><img class="content__like-img link" src="./images/icons/Vector.svg" alt="Лайк"></button>
-                </div>
-            </li>
-            <li class="content__box">
-                <img class="content__image" src="./images/Эльбрус.jpg" alt="Эльбрус">
-                <div class="content__info">
-                    <h2 class="content__title">Гора Эльбрус</h2>
-                    <button class="content__link"><img class="content__like-imglink link" src="./images/icons/Vector.svg" alt="Лайк"></button>
-                </div>
-            </li>
-            <li class="content__box">
-                <img class="content__image" src="./images/Домбай.jpg" alt="Домбай">
-                <div class="content__info">
-                    <h2 class="content__title">Домбай</h2>
-                    <button class="content__link"><img class="content__like-img link" src="./images/icons/Vector.svg" alt="Лайк"></button>
-                </div>
-            </li>
-            <li class="content__box">
-                <img class="content__image" src="./images/Карачаевск.jpg" alt="Карачаево-Черкесия">
-                <div class="content__info">
-                    <h2 class="content__title">Карачаево-Черкесия</h2>
-                    <button class="content__link "><img class="content__like-img link" src="./images/icons/Vector.svg" alt="Лайк"></button>
-                </div>
-            </li>
-        </ul>
+        <main class="main">
+            <section class="content">
+                <ul class="content__box-list">
+                    <li class="content__box">
+                        <img class="content__image" src="./images/Карачаевск.jpg" alt="Карачаевск">
+                        <div class="content__info">
+                            <h2 class="content__title">Карачаевск</h2>
+                            <button type="button" class="content__link"><img class="content__like-img" src="./images/icons/Vector.svg" alt="Лайк"></button>
+                        </div>
+                    </li>
+                    <li class="content__box">
+                        <img class="content__image" src="./images/Эльбрус.jpg" alt="Эльбрус">
+                        <div class="content__info">
+                            <h2 class="content__title">Гора Эльбрус</h2>
+                            <button type="button" class="content__link"><img class="content__like-img" src="./images/icons/Vector.svg" alt="Лайк"></button>
+                        </div>
+                    </li>
+                    <li class="content__box">
+                        <img class="content__image" src="./images/Домбай.jpg" alt="Домбай">
+                        <div class="content__info">
+                            <h2 class="content__title">Домбай</h2>
+                            <button type="button" class="content__link"><img class="content__like-img" src="./images/icons/Vector.svg" alt="Лайк"></button>
+                        </div>
+                    </li>
+                    <li class="content__box">
+                        <img class="content__image" src="./images/Эльбрус.jpg" alt="Эльбрус">
+                        <div class="content__info">
+                            <h2 class="content__title">Гора Эльбрус</h2>
+                            <button type="button" class="content__link"><img class="content__like-img" src="./images/icons/Vector.svg" alt="Лайк"></button>
+                        </div>
+                    </li>
+                    <li class="content__box">
+                        <img class="content__image" src="./images/Домбай.jpg" alt="Домбай">
+                        <div class="content__info">
+                            <h2 class="content__title">Домбай</h2>
+                            <button type="button" class="content__link"><img class="content__like-img" src="./images/icons/Vector.svg" alt="Лайк"></button>
+                        </div>
+                    </li>
+                    <li class="content__box">
+                        <img class="content__image" src="./images/Карачаевск.jpg" alt="Карачаево-Черкесия">
+                        <div class="content__info">
+                            <h2 class="content__title">Карачаево-Черкесия</h2>
+                            <button type="button" class="content__link "><img class="content__like-img" src="./images/icons/Vector.svg" alt="Лайк"></button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
         </main>
     </div>
     <footer class="footer">
-        <h2 class="footer__title">&copy; 2023 Mesto Russia</h2>
+        <p class="footer__title">&copy; 2023 Mesto Russia</p>
     </footer>
     <section class="popup popup_type_user-info">
         <div class="popup__container">
-            <img class="popup__close" src="./images/icons/Close_Icon.png" alt="Кнопка закрытия Попап">
+            <button type="button" class="popup__close"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form" name="user-info-container">
+            <form class="popup__form" name="user-info-container" method="post">
                 <fieldset class="popup__form-input-container">
-                    <input type="text" class="popup__input popup__input-name" name="name" placeholder="Введите Ваше имя">
-                    <input type="text" class="popup__input popup__input-job" name="job" placeholder="Введите Ваш род занятий">
+                    <input type="text" class="popup__form-input popup__form-input_add_name" name="name" placeholder="Введите Ваше имя">
+                    <input type="text" class="popup__form-input popup__form-input_add_job" name="job" placeholder="Введите Ваш род занятий">
                 </fieldset>
                 <button type="submit" class="popup__input-button">Сохранить</button>
             </form>

@@ -11,16 +11,15 @@
 
 @media screen and (max-width: 1023px) {
     .profile__job-title {
-    font-weight: 400;
     font-size: 14px;
     line-height: 17px;
     margin-bottom: 36px;
+    max-width: 300px;
     }
 }
 
 @media screen and (max-width: 659px) {
     .profile__job-title {
     max-width: 210px;
-    margin-bottom: 36px;
     }
 }
