@@ -9,6 +9,7 @@
     height: 19px;
     background-color: transparent;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 .content__delete-button:hover {

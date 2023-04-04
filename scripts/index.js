@@ -1,15 +1,11 @@
 const popupOpenUserInfo = document.querySelector('.profile__editing-button');
 const popupOpenAddNewImage = document.querySelector('.profile__content-button');
-
 const userInfoPopup = document.querySelector('.popup_type_user-info');
 const addNewImg = document.querySelector('.popup_type_add-img');
-
 const userInfoPopupClose = userInfoPopup.querySelector('.popup__close');
 const addNewImgPopupClose = addNewImg.querySelector('.popup__close');
-
 const imageTemplate = document.querySelector('.image__tamplate');
 const cardGrid = document.querySelector('.content__box-list');
-
 const userInfoPopupForm = userInfoPopup.querySelector('.popup__form');
 const userInfoPopupInputName = userInfoPopup.querySelector('.popup__form-input_add_name');
 const userInfoPopupInputJob = userInfoPopup.querySelector('.popup__form-input_add_job');
@@ -43,8 +39,6 @@ function submitUserInfo (event) {
 };
 
 userInfoPopupForm.addEventListener('submit', submitUserInfo);
-
-/* */
 
 popupOpenAddNewImage.addEventListener('click',  () => openPopup(addNewImg));
 addNewImgPopupClose.addEventListener('click', () => closePopup(addNewImg));
@@ -119,6 +113,8 @@ const editNewCardSubmit = (event) => {
     };
     renderCardElement(createCardElement(newCardData));
     closePopup(addNewImg);
+    addNewImgPopupTitle.value = null;
+    addNewImgPopupUrl.value = null;
 }
 
 addNewImgPopupForm.addEventListener('submit', editNewCardSubmit);
