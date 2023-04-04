@@ -27,48 +27,7 @@
         <main class="main">
             <section class="content">
                 <ul class="content__box-list">
-                    <li class="content__box">
-                        <img class="content__image" src="./images/Карачаевск.jpg" alt="Карачаевск">
-                        <div class="content__info">
-                            <h2 class="content__title">Карачаевск</h2>
-                            <button type="button" class="content__link"><img class="content__like-img" src="./images/icons/Vector.svg" alt="Лайк"></button>
-                        </div>
-                    </li>
-                    <li class="content__box">
-                        <img class="content__image" src="./images/Эльбрус.jpg" alt="Эльбрус">
-                        <div class="content__info">
-                            <h2 class="content__title">Гора Эльбрус</h2>
-                            <button type="button" class="content__link"><img class="content__like-img" src="./images/icons/Vector.svg" alt="Лайк"></button>
-                        </div>
-                    </li>
-                    <li class="content__box">
-                        <img class="content__image" src="./images/Домбай.jpg" alt="Домбай">
-                        <div class="content__info">
-                            <h2 class="content__title">Домбай</h2>
-                            <button type="button" class="content__link"><img class="content__like-img" src="./images/icons/Vector.svg" alt="Лайк"></button>
-                        </div>
-                    </li>
-                    <li class="content__box">
-                        <img class="content__image" src="./images/Эльбрус.jpg" alt="Эльбрус">
-                        <div class="content__info">
-                            <h2 class="content__title">Гора Эльбрус</h2>
-                            <button type="button" class="content__link"><img class="content__like-img" src="./images/icons/Vector.svg" alt="Лайк"></button>
-                        </div>
-                    </li>
-                    <li class="content__box">
-                        <img class="content__image" src="./images/Домбай.jpg" alt="Домбай">
-                        <div class="content__info">
-                            <h2 class="content__title">Домбай</h2>
-                            <button type="button" class="content__link"><img class="content__like-img" src="./images/icons/Vector.svg" alt="Лайк"></button>
-                        </div>
-                    </li>
-                    <li class="content__box">
-                        <img class="content__image" src="./images/Карачаевск.jpg" alt="Карачаево-Черкесия">
-                        <div class="content__info">
-                            <h2 class="content__title">Карачаево-Черкесия</h2>
-                            <button type="button" class="content__link "><img class="content__like-img" src="./images/icons/Vector.svg" alt="Лайк"></button>
-                        </div>
-                    </li>
+                    
                 </ul>
             </section>
         </main>
@@ -89,5 +48,28 @@
             </form>
         </div>
     </section>
+    <section class="popup popup_type_add-img">
+        <div class="popup__container">
+            <button type="button" class="popup__close"></button>
+            <h2 class="popup__title">Новое место</h2>    
+            <form class="popup__form" name="user-info-container" method="post">
+                <fieldset class="popup__form-input-container">
+                    <input type="text" class="popup__form-input popup__form-input_card_name" name="name" placeholder="Название">
+                    <input type="url" class="popup__form-input popup__form-input_card_url" name="job" placeholder="Ссылка на картинку">
+                </fieldset>
+                <button type="submit" class="popup__input-button">Создать</button>
+            </form>
+        </div>
+    </section>
+    <template class="image__tamplate">
+        <li class="content__box">
+            <img class="content__image" src="/" alt="">
+            <div class="content__info">
+                <h2 class="content__title"></h2>
+                <button type="button" class="content__link "><img class="content__like-img" src="./images/icons/Vector.svg" alt="Лайк"></button>
+            </div>
+            <button class="content__delete-button"><img src="./images/icons/Delete.svg" alt="Удаление" class="content__delete-button-icon"></button>
+        </li>
+    </template>
 </body>
 </html>

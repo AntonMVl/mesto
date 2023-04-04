@@ -33,6 +33,8 @@
 @import url(../blocks/content/__link/content__link.css);
 @import url(../blocks/content/__like-img/content__like-img.css);
 @import url(../blocks/content/__like-img/_type/content__like-img_type_active.css);
+@import url(../blocks/content/__delete-button/content__delete-button.css);
+@import url(../blocks/content/__delete-button-icon/content__delete-button-icon.css);
 /*connect content*/
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__title/footer__title.css);
