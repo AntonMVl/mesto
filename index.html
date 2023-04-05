@@ -26,9 +26,7 @@
         </section>
         <main class="main">
             <section class="content">
-                <ul class="content__box-list">
-                    
-                </ul>
+                <ul class="content__box-list"></ul>
             </section>
         </main>
     </div>
@@ -38,8 +36,8 @@
     <section class="popup popup_type_user-info">
         <div class="popup__container">
             <button type="button" class="popup__close"></button>
-            <h2 class="popup__title">Редактировать профиль</h2>
             <form class="popup__form" name="user-info-container" method="post">
+                <h2 class="popup__title">Редактировать профиль</h2>
                 <fieldset class="popup__form-input-container">
                     <input type="text" class="popup__form-input popup__form-input_add_name" name="name" placeholder="Введите Ваше имя">
                     <input type="text" class="popup__form-input popup__form-input_add_job" name="job" placeholder="Введите Ваш род занятий">
@@ -50,15 +48,22 @@
     </section>
     <section class="popup popup_type_add-img">
         <div class="popup__container">
-            <button type="button" class="popup__close"></button>
-            <h2 class="popup__title">Новое место</h2>    
+            <button type="button" class="popup__close"></button>    
             <form class="popup__form" name="user-info-container" method="post">
+                <h2 class="popup__title">Новое место</h2>
                 <fieldset class="popup__form-input-container">
                     <input type="text" class="popup__form-input popup__form-input_card_name" name="name" placeholder="Название">
                     <input type="url" class="popup__form-input popup__form-input_card_url" name="job" placeholder="Ссылка на картинку">
                 </fieldset>
                 <button type="submit" class="popup__input-button">Создать</button>
             </form>
+        </div>
+    </section>
+    <section class="popup popup_type_open-img">
+        <div class="popup__container">
+            <button type="button" class="popup__close"></button>
+            <img src="" alt="" class="popup__image">
+            <h2 class="popup__image-title"></h2>
         </div>
     </section>
     <template class="image__tamplate">
