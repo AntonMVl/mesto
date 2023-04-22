@@ -4,7 +4,7 @@ const validationConfig = {
     submitButtonSelector: '.popup__input-button',
     inactiveButtonClass: 'popup__input-button_disabled',
     inputErrorClass: 'popup__form-input_type_error',
-    errorClass: 'popup__error'
+    errorClass: 'popup__error_visible'
 };
 
 function enableValidation(validationConfig) {
@@ -18,11 +18,13 @@ function checkInputValidation(input, validationConfig) {
     const errorElementPopup = document.querySelector(`#error-${input.id}`)
     if (input.checkValidity()) {
         input.classList.remove(validationConfig.inputErrorClass);
+        errorElementPopup.classList.remove(validationConfig.errorClass)
         errorElementPopup.textContent = ''
     }
     else {
         input.classList.add(validationConfig.inputErrorClass);
         errorElementPopup.textContent = input.validationMessage;
+        errorElementPopup.classList.add(validationConfig.errorClass)
     }
 }
 

@@ -21,9 +21,11 @@ const popupImageOpenTitle = popupImageOpen.querySelector(".popup__image-title");
 
 const openPopup = (popup) => {
     popup.classList.add('popup_opened');
+    document.addEventListener("keydown", closePopupPressEsc);
 }
 const closePopup = (popup) => {
     popup.classList.remove('popup_opened');
+    document.addEventListener("keydown", closePopupPressEsc);
 }
 
 function openProfilePopup () {
@@ -37,6 +39,20 @@ function submitUserInfo (event) {
     userNameValue.textContent = userInfoPopupInputName.value;
     userJobValue.textContent = userInfoPopupInputJob.value;
     closePopup(userInfoPopup);
+};
+
+const closePopupClickOverlay = function (event) {
+    if (event.target !== event.currentTarget) {
+    return;
+    }
+    closePopup(event.target);
+};
+
+const closePopupPressEsc = function (event) {
+    if (event.key === 'Escape') {
+        const selectedPopup = document.querySelector(".popup_opened");
+        closePopup(selectedPopup);
+    }
 };
 
 const createCardElement = (cardData) => {
@@ -94,6 +110,9 @@ buttonPopupOpenAddNewImage.addEventListener('click',  () => openPopup(popupAddNe
 popupAddNewImgForm.addEventListener('submit', editNewCardSubmit);
 popupAddNewImgCloseButton.addEventListener('click', () => closePopup(popupAddNewImg));
 popupOpenImageCloseButton.addEventListener('click', () => closePopup(popupImageOpen));
+userInfoPopup.addEventListener("click", closePopupClickOverlay);
+popupAddNewImg.addEventListener("click", closePopupClickOverlay);
+popupImageOpen.addEventListener("click", closePopupClickOverlay);
 
 
 

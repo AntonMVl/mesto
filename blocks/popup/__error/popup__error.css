@@ -1,5 +1,4 @@
 .popup__error {
-    margin: 5px 0 13px 0;
     margin-top: 5px;
     padding: 0;
     font-weight: 400;
@@ -7,4 +6,8 @@
     line-height: 15px;
     color: rgba(255, 0, 0, 1);
     box-sizing: border-box;
+    max-width: 358px;
+    position: absolute;
+    top: 25px;
+    left: 0;    
 }
