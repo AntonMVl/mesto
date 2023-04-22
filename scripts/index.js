@@ -1,11 +1,9 @@
+const popups = Array.from(document.querySelectorAll('.popup'));
 const buttonPopupOpenUserInfo = document.querySelector('.profile__editing-button');
 const buttonPopupOpenAddNewImage = document.querySelector('.profile__content-button');
 const userInfoPopup = document.querySelector('.popup_type_user-info');
 const popupAddNewImg = document.querySelector('.popup_type_add-img');
 const popupImageOpen = document.querySelector('.popup_type_open-img');
-const userInfoPopupCloseButton = userInfoPopup.querySelector('.popup__close');
-const popupAddNewImgCloseButton = popupAddNewImg.querySelector('.popup__close');
-const popupOpenImageCloseButton = popupImageOpen.querySelector('.popup__close');
 const imageTemplate = document.querySelector('.image__tamplate');
 const cardGrid = document.querySelector('.content__box-list');
 const userInfoPopupForm = userInfoPopup.querySelector('.popup__form');
@@ -18,6 +16,7 @@ const popupAddNewImgTitle = popupAddNewImg.querySelector('.popup__form-input_car
 const popupAddNewImgUrl = popupAddNewImg.querySelector('.popup__form-input_card_url');
 const popupImageOpenPicture = popupImageOpen.querySelector(".popup__image");
 const popupImageOpenTitle = popupImageOpen.querySelector(".popup__image-title");
+const buttonSubmitAddNewImg = popupAddNewImg.querySelector('.popup__input-button');
 
 const openPopup = (popup) => {
     popup.classList.add('popup_opened');
@@ -25,8 +24,19 @@ const openPopup = (popup) => {
 }
 const closePopup = (popup) => {
     popup.classList.remove('popup_opened');
-    document.addEventListener("keydown", closePopupPressEsc);
+    document.removeEventListener("keydown", closePopupPressEsc);
 }
+
+popups.forEach((popup) => {
+    popup.addEventListener('mousedown', (evt) => {
+        if (evt.target.classList.contains('popup_opened')) {
+            closePopup(popup)
+        }
+        if (evt.target.classList.contains('popup__close')) {
+            closePopup(popup)
+        }
+    })
+})
 
 function openProfilePopup () {
     openPopup(userInfoPopup);
@@ -39,13 +49,6 @@ function submitUserInfo (event) {
     userNameValue.textContent = userInfoPopupInputName.value;
     userJobValue.textContent = userInfoPopupInputJob.value;
     closePopup(userInfoPopup);
-};
-
-const closePopupClickOverlay = function (event) {
-    if (event.target !== event.currentTarget) {
-    return;
-    }
-    closePopup(event.target);
 };
 
 const closePopupPressEsc = function (event) {
@@ -103,16 +106,35 @@ function openImagePopup (cardData) {
     openPopup(popupImageOpen);
 }
 
+function addDisabledSubmitButtonAddNewImgPopup (popup) {
+}
+
 buttonPopupOpenUserInfo.addEventListener('click', openProfilePopup);
-userInfoPopupCloseButton.addEventListener('click', () => closePopup(userInfoPopup));
 userInfoPopupForm.addEventListener('submit', submitUserInfo);
-buttonPopupOpenAddNewImage.addEventListener('click',  () => openPopup(popupAddNewImg));
+buttonPopupOpenAddNewImage.addEventListener('click',  () => {
+    openPopup(popupAddNewImg);
+    buttonSubmitAddNewImg.setAttribute('disabled', ''); 
+    buttonSubmitAddNewImg.classList.add('popup__input-button_disabled');
+});
 popupAddNewImgForm.addEventListener('submit', editNewCardSubmit);
-popupAddNewImgCloseButton.addEventListener('click', () => closePopup(popupAddNewImg));
-popupOpenImageCloseButton.addEventListener('click', () => closePopup(popupImageOpen));
-userInfoPopup.addEventListener("click", closePopupClickOverlay);
-popupAddNewImg.addEventListener("click", closePopupClickOverlay);
-popupImageOpen.addEventListener("click", closePopupClickOverlay);
+
+
+//Старый код, уменьшил после ревью.
+// const userInfoPopupCloseButton = userInfoPopup.querySelector('.popup__close');
+// const popupAddNewImgCloseButton = popupAddNewImg.querySelector('.popup__close');
+// const popupOpenImageCloseButton = popupImageOpen.querySelector('.popup__close');
+// const closePopupClickOverlay = function (event) {
+//     if (event.target !== event.currentTarget) {
+//     return;
+//     }
+//     closePopup(event.target);
+// };
+// popupAddNewImgCloseButton.addEventListener('click', () => closePopup(popupAddNewImg));
+// popupOpenImageCloseButton.addEventListener('click', () => closePopup(popupImageOpen));
+// userInfoPopup.addEventListener("click", closePopupClickOverlay);
+// popupAddNewImg.addEventListener("click", closePopupClickOverlay);
+// popupImageOpen.addEventListener("click", closePopupClickOverlay);
+// userInfoPopupCloseButton.addEventListener('click', () => closePopup(userInfoPopup));
 
 
 
