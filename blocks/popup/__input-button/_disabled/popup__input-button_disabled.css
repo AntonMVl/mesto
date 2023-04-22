@@ -1,0 +1,5 @@
+.popup__input-button_disabled {
+    background-color: rgba(0, 0, 0, 1);
+    border: 1px;
+    opacity: 0.2;
+}
