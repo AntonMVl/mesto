@@ -1,6 +1,7 @@
 import initialCards from './CardsData.js';
 import Card from './Сard.js';
 import FormValidator from './FormValidator.js'
+import validationConfig from './constants.js'
 
 const popups = Array.from(document.querySelectorAll('.popup'));
 const buttonPopupOpenUserInfo = document.querySelector('.profile__editing-button');
@@ -22,15 +23,6 @@ const popupImageOpenPicture = popupImageOpen.querySelector(".popup__image");
 const popupImageOpenTitle = popupImageOpen.querySelector(".popup__image-title");
 const buttonSubmitAddNewImg = popupAddNewImg.querySelector('.popup__input-button');
 
-const validationConfig = {
-    formSelector: '.popup__form',
-    inputSelector: '.popup__form-input',
-    submitButtonSelector: '.popup__input-button',
-    inactiveButtonClass: 'popup__input-button_disabled',
-    inputErrorClass: 'popup__form-input_type_error',
-    errorClass: 'popup__error_visible'
-};
-
 const openPopup = (popup) => {
     popup.classList.add('popup_opened');
     document.addEventListener("keydown", closePopupPressEsc);
@@ -42,10 +34,7 @@ const closePopup = (popup) => {
 
 popups.forEach((popup) => {
     popup.addEventListener('mousedown', (evt) => {
-        if (evt.target.classList.contains('popup_opened')) {
-            closePopup(popup)
-        }
-        if (evt.target.classList.contains('popup__close')) {
+        if (evt.target.classList.contains('popup_opened') || evt.target.classList.contains('popup__close')) {
             closePopup(popup)
         }
     })
@@ -79,8 +68,8 @@ function renderCardElement (item, cardGrid) {
 
 function getItemFromArray (array, cardGrid) {
     array.forEach((item) => {
-    renderCardElement(item, cardGrid);
-});
+        renderCardElement(item, cardGrid);
+    });
 }
 
 getItemFromArray (initialCards, cardGrid)
@@ -104,15 +93,15 @@ function openImagePopup (item) {
 }
 
 const userInfoFormValidation = new FormValidator(validationConfig, userInfoPopupForm);
-const NewImgFormValidation = new FormValidator(validationConfig, popupAddNewImgForm);
+const newImgFormValidation = new FormValidator(validationConfig, popupAddNewImgForm);
 userInfoFormValidation.enableValidation();
-NewImgFormValidation.enableValidation();
+newImgFormValidation.enableValidation();
 
 buttonPopupOpenUserInfo.addEventListener('click', openProfilePopup);
 userInfoPopupForm.addEventListener('submit', submitUserInfo);
 buttonPopupOpenAddNewImage.addEventListener('click',  () => {
     openPopup(popupAddNewImg);
-    buttonSubmitAddNewImg.setAttribute('disabled', ''); 
+    newImgFormValidation.disableButton();
     buttonSubmitAddNewImg.classList.add('popup__input-button_disabled');
 });
 popupAddNewImgForm.addEventListener('submit', editNewCardSubmit);
