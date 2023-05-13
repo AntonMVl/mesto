@@ -8,6 +8,9 @@ class FormValidator {
 
     enableValidation() {
         this._inputs.forEach((input) => {this._setEventListeners(input)})
+        this._form.addEventListener('submit', (event) => {
+            event.preventDefault();
+        })
 }
 
     _setEventListeners(input) {
@@ -15,9 +18,7 @@ class FormValidator {
             this._checkInputValidation(input);
             this._toggleButtonValidity();
         });
-        this._form.addEventListener('submit', (event) => {
-            event.preventDefault();
-        })
+        
     }
 
     _checkInputValidation(input) {

@@ -61,7 +61,7 @@ const closePopupPressEsc = function (event) {
 };
 
 function renderCardElement (item, cardGrid) {
-    const card = new Card(item, imageTemplate, openImagePopup)
+    const card = new Card(item, ".image__tamplate", openImagePopup)
     const cardElement = card.createCard();
     cardGrid.prepend(cardElement);
 }
@@ -102,7 +102,6 @@ userInfoPopupForm.addEventListener('submit', submitUserInfo);
 buttonPopupOpenAddNewImage.addEventListener('click',  () => {
     openPopup(popupAddNewImg);
     newImgFormValidation.disableButton();
-    buttonSubmitAddNewImg.classList.add('popup__input-button_disabled');
 });
 popupAddNewImgForm.addEventListener('submit', editNewCardSubmit);
 

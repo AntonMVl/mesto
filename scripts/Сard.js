@@ -1,7 +1,7 @@
 class Card {
-    constructor(data, imageTemplate, openImage) {
+    constructor(data, templateSelector, openImage) {
         this._data = data;
-        this._imageTemplate = imageTemplate;
+        this._templateSelector = templateSelector;
         this._openImage = openImage;
     }
 
@@ -13,7 +13,7 @@ class Card {
     }
 
     _getCard() {
-        this._imageItem = this._imageTemplate.querySelector('.content__box').cloneNode(true);
+        this._imageItem = document.querySelector(this._templateSelector).content.querySelector('.content__box').cloneNode(true);
         this._likeButton = this._imageItem.querySelector('.content__like-img');
         this._deleteButton = this._imageItem.querySelector('.content__delete-button-icon');
         this._imageCardPicture = this._imageItem.querySelector('.content__image');
