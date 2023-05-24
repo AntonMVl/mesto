@@ -18,14 +18,13 @@ class Card {
         this._deleteButton = this._imageItem.querySelector('.content__delete-button-icon');
         this._imageCardPicture = this._imageItem.querySelector('.content__image');
         this._imageTitle = this._imageItem.querySelector('.content__title');
-        this._image = this._imageItem.querySelector('.content__image');
         return this._imageItem;
     }
 
     _insertCardContent(){
         this._imageTitle.textContent = this._data.name;
-        this._image.src = this._data.link;
-        this._image.alt = this._data.name;
+        this._imageCardPicture.src = this._data.link;
+        this._imageCardPicture.alt = this._data.name;
     }
 
     _setEventListeners() {

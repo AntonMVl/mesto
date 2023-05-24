@@ -11,7 +11,7 @@ class Section {
         });
     }
     addItem(element) {
-        this._templateSelector.append(element)
+        this._templateSelector.prepend(element)
     }
 }
 

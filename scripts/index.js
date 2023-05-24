@@ -1,20 +1,15 @@
-import {popups,
+import {
     buttonPopupOpenUserInfo,
     buttonPopupOpenAddNewImage,
     userInfoPopup,
     popupAddNewImg,
     popupImageOpen,
-    cardGrid,
     userInfoPopupForm,
     userInfoPopupInputName,
     userInfoPopupInputJob,
     userNameValue,
     userJobValue,
     popupAddNewImgForm,
-    popupAddNewImgTitle,
-    popupAddNewImgUrl,
-    popupImageOpenPicture,
-    popupImageOpenTitle,
 } from './constants.js'
 import initialCards from './CardsData.js';
 import Card from './Сard.js';
@@ -44,7 +39,7 @@ const popupNewImageForm = new PopupWithForm (popupAddNewImg, (inputValues) => {
 buttonPopupOpenAddNewImage.addEventListener('click', () => {
     popupNewImageForm.open()
     newImgFormValidation.disableButton();
-})
+});
 
 buttonPopupOpenUserInfo.addEventListener('click', () => {
     popupUserInfo.open();
@@ -63,7 +58,6 @@ function createCardElement (item) {
 function renderCard (item) {
     const cardElement = createCardElement(item);
     renderCardList.addItem(cardElement);
-    
 }
 
 const userInfoFormValidation = new FormValidator(validationConfig, userInfoPopupForm);
