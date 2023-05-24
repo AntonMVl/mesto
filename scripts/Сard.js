@@ -1,8 +1,8 @@
 class Card {
-    constructor(data, templateSelector, openImage) {
+    constructor(data, templateSelector, handleCardClick) {
         this._data = data;
         this._templateSelector = templateSelector;
-        this._openImage = openImage;
+        this._handleCardClick = handleCardClick;
     }
 
     createCard() {
@@ -43,7 +43,7 @@ class Card {
     }
 
     _openImagePopup() {
-        this._openImage(this._data)
+        this._handleCardClick(this._data)
     }
 }
 
