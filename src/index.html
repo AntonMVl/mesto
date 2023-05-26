@@ -4,25 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
-    <script type='module' src="./scripts/index.js"></script>
     <title>Mesto</title>
 </head>
 <body class="body">
     <div class="page">
         <header class="header">
-            <img class="header__logo" src="./images/icons/header-logo.svg" alt="Место">
+            <img class="header__logo" src="<%=require('./images/icons/header-logo.svg')%>" alt="Место">
         </header>
         <section class="profile">
-            <img class="profile__image" src="./images/user-image.jpg" alt="Аватар">
+            <img class="profile__image" src="<%=require('./images/user-image.jpg')%>" alt="Аватар">
             <div class="profile__user-info">
                 <div class="profile__input-info">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <button type="button" class="profile__editing-button link"><img class="profile__editing-img" src="./images/icons/Vector.png" alt="Редактирование профиля"></button>
+                    <button type="button" class="profile__editing-button link"><img class="profile__editing-img" src="<%=require('./images/icons/Vector.png')%>" alt="Редактирование профиля"></button>
                 </div>
             <p class="profile__job-title">Исследователь океана</p>
             </div>
-            <button type="button" class="profile__content-button link"><img class="profile__content-img" src="./images/icons/plus.png" alt="Кнопка добавления контента"></button>
+            <button type="button" class="profile__content-button link"><img class="profile__content-img" src="<%=require('./images/icons/plus.png')%>" alt="Кнопка добавления контента"></button>
         </section>
         <main class="main">
             <section class="content">
@@ -83,9 +81,9 @@
             <img class="content__image" src="/" alt="">
             <div class="content__info">
                 <h2 class="content__title"></h2>
-                <button type="button" class="content__link "><img class="content__like-img" src="./images/icons/Vector.svg" alt="Лайк"></button>
+                <button type="button" class="content__link "><img class="content__like-img" src="<%=require('./images/icons/Vector.svg')%>" alt="Лайк"></button>
             </div>
-            <button class="content__delete-button"><img src="./images/icons/Delete.svg" alt="Удаление" class="content__delete-button-icon"></button>
+            <button class="content__delete-button"><img src="<%=require('./images/icons/Delete.svg')%>" alt="Удаление" class="content__delete-button-icon"></button>
         </li>
     </template>
 </body>
