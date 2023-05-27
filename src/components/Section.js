@@ -5,7 +5,7 @@ class Section {
         this._templateSelector = document.querySelector(templateSelector);
     }
 
-    render() {
+    renderItems() {
         this._items.forEach((item) => {
             this._renderer(item);
         });

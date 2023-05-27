@@ -11,15 +11,15 @@ import {
     userNameValue,
     userJobValue,
     popupAddNewImgForm,
-} from './constants.js'
-import initialCards from './CardsData.js';
-import Card from './Сard.js';
-import FormValidator from './FormValidator.js'
-import validationConfig from './constants.js'
-import Section from './Section.js'
-import PopupWithImage from './PopupWithImage.js'
-import PopupWithForm from './PopupWithForm.js'
-import UserInfo from './UserInfo.js'
+} from '../utils/constants.js'
+import initialCards from '../utils/CardsData.js';
+import Card from '../components/Сard.js';
+import FormValidator from '../components/FormValidator.js'
+import validationConfig from '../utils/constants.js'
+import Section from '../components/Section.js'
+import PopupWithImage from '../components/PopupWithImage.js'
+import PopupWithForm from '../components/PopupWithForm.js'
+import UserInfo from '../components/UserInfo.js'
 
 const popupOpenImage = new PopupWithImage (popupImageOpen);
 popupOpenImage.setEventListeners();
@@ -49,7 +49,7 @@ buttonPopupOpenUserInfo.addEventListener('click', () => {
 });
 
 const renderCardList = new Section ({items: initialCards, renderer: renderCard}, ".content__box-list");
-renderCardList.render()
+renderCardList.renderItems()
 
 function createCardElement (item) {
     const card = new Card(item, ".image__tamplate", () => {popupOpenImage.open(item)})
