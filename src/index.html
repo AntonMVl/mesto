@@ -13,6 +13,7 @@
         </header>
         <section class="profile">
             <img class="profile__image" src="<%=require('./images/user-image.jpg')%>" alt="Аватар">
+            <button class="profile__image-button" type="button"></button>
             <div class="profile__user-info">
                 <div class="profile__input-info">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -76,12 +77,30 @@
             <h2 class="popup__image-title"></h2>
         </div>
     </section>
+    <section class="popup popup__type_change-avatar">
+        <button type="button" class="popup__close"></button>    
+        <form class="popup__form" name="change-avatar-container" method="post" novalidate>
+            <h2 class="popup__title">Обновить аватар</h2>
+            <fieldset class="popup__form-input-container">
+                <fieldset class="popup__input-container">
+                    <input id ="avatar" type="url" class="popup__form-input popup__form-input_avatar-name" autocomplete="off" required minlength="2" maxlength="30" name="link" placeholder="Ссылка на аватар">
+                </fieldset>
+            </fieldset>
+            <button type="submit" class="popup__input-button">Сохранить</button>
+        </form>
+    </section>
+    <section class="popup popup__type_delete-confirmed">
+        <button type="button" class="popup__close"></button>    
+        <h2 class="popup__title">Вы уверены?</h2>
+        <button type="submit" class="popup__input-button popup__input-button_type_confirmation">Да</button>
+    </section>
     <template class="image__tamplate">
         <li class="content__box">
             <img class="content__image" src="/" alt="">
             <div class="content__info">
                 <h2 class="content__title"></h2>
                 <button type="button" class="content__link "><img class="content__like-img" src="<%=require('./images/icons/Vector.svg')%>" alt="Лайк"></button>
+                <p class="content__like-box"></p>
             </div>
             <button class="content__delete-button"><img src="<%=require('./images/icons/Delete.svg')%>" alt="Удаление" class="content__delete-button-icon"></button>
         </li>
