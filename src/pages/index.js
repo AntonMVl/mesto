@@ -40,16 +40,21 @@ const userInfo = new UserInfo ({ nameSelector:userNameValue, jobSelector:userJob
 
 const renderCardList = new Section ({renderer: renderCard}, ".content__box-list");
 
-api.getCards().then((res) => {
-    const userId = userInfo.getUserInfo().userId;
-    const items = res.reverse();
-    renderCardList.renderItems(items, userId)
-    
-}).catch((error => console.error(`Ошибка получения массива карточек или информации о пользователе ${error}`)))
-
-api.getUser().then((res) => {
-    userInfo.setUserInfo({ name: res.name, about: res.about, avatar: res.avatar, userId: res._id })
-    }).catch((error) => console.error(`Ошибка загрузки данных с сервера - ${error}`));
+Promise.all([api.getUser(), api.getCards()])
+    .then(([userRes, cardsRes]) => {
+        const userId = userRes._id;
+        const items = cardsRes.reverse();
+        renderCardList.renderItems(items, userId);
+        userInfo.setUserInfo({
+            name: userRes.name,
+            about: userRes.about,
+            avatar: userRes.avatar,
+            userId: userId,
+        });
+    })
+    .catch((error) =>
+        console.error(`Ошибка при загрузке данных с сервера - ${error}`)
+    );
 
 const userInfoFormValidation = new FormValidator(validationConfig, userInfoPopupForm);
 const newImgFormValidation = new FormValidator(validationConfig, popupAddNewImgForm);
@@ -105,14 +110,14 @@ function handleFormAddNewImage(inputValues) {
         renderCard({
             name: newCard.name, _id: newCard._id, link: newCard.link, likes: newCard.likes, owner: { _id: newCard.owner._id }
         }, newCard.owner._id);
-        popupAddNewImg.close();
+        popupNewImageForm.close();
     })
     .catch((error => console.error(`Ошибка при попытке создать карточку ${error}`)))
     .finally(() => popupNewImageForm.setDefaultButtonText());
 }
 
 function handleSubmitSetInfo(inputValues) {
-    api.updateProfileInfo(inputValues.name, inputValues.job)
+    return api.updateProfileInfo(inputValues.name, inputValues.job)
     .then((res) => {
         userInfo.setUserInfo({ name: res.name, about: res.about, avatar: res.avatar });
         popupUserInfo.close();
