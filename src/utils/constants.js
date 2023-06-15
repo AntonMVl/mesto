@@ -26,10 +26,11 @@ export const popupAddNewImgUrl = popupAddNewImg.querySelector('.popup__form-inpu
 export const popupImageOpenPicture = popupImageOpen.querySelector(".popup__image");
 export const popupImageOpenTitle = popupImageOpen.querySelector(".popup__image-title");
 export const buttonSubmitAddNewImg = popupAddNewImg.querySelector('.popup__input-button');
-export const avatarImage = document.querySelector('.profile__image-button');
-export const popupChangeAvatar = document.querySelector('.popup__type_change-avatar');
+export const avatarImage = document.querySelector('.profile__image');
+export const avatarImageButton = document.querySelector('.profile__image-button');
+export const popupChangeAvatar = document.querySelector('.popup_type_change-avatar');
 export const inputChangeAvatar = popupChangeAvatar.querySelector('.popup__form-input_avatar-name');
 export const popupChangeAvatarForm = popupChangeAvatar.querySelector('.popup__form');
-export const popupDeleteConfirmation = document.querySelector('.popup__type_delete-confirmed')
+export const popupDeleteConfirmation = document.querySelector('.popup_type_delete-confirmed')
 
 export default validationConfig;

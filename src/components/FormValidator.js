@@ -52,6 +52,7 @@ class FormValidator {
         this._submitButton.removeAttribute('disabled');
         this._submitButton.classList.remove(this._config.inactiveButtonClass)
     };
+
 };
 
 export default FormValidator;

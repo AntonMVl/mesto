@@ -4,7 +4,7 @@
     background-repeat: no-repeat;
     border-radius: 50%;
     border: none;
-    /* background-image: url(../../../images/Vector.svg); */
+    background-image: url(../../../images/icons/AvatarVector.svg);
     background-size: cover;
     background-position: 50%;
     width: 120px;
@@ -12,15 +12,10 @@
     opacity: 0;
 }
 
-.profile__button:hover {
+.profile__image-button:hover {
     background-size: 26px;
     cursor: pointer;
     opacity: .8;
     transition: opacity 0.3s ease-in-out;
 }
 
-@media screen and (max-width: 936px) {
-    .profile__button {
-    align-self: self-start;
-    }
-}

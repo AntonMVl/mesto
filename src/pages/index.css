@@ -38,6 +38,9 @@
 @import url(../blocks/content/__delete-button/content__delete-button.css);
 @import url(../blocks/content/__delete-button-icon/content__delete-button-icon.css);
 @import url(../blocks/content/__like-box/content__like-box.css);
+@import url(../blocks/content/__like-bar/content__like-bar.css);
+@import url(../blocks/content/__delete-button-icon/_type_visible/content__delete-button-icon_type_visible.css);
+
 /*connect content*/
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__title/footer__title.css);
@@ -59,6 +62,9 @@
 @import url(../blocks/popup/__form-input/_type_error/popup__form-input_type_error.css);
 @import url(../blocks/popup/__error/_visible/popup__error_visible.css);
 @import url(../blocks/popup/__input-button/_disabled/popup__input-button_disabled.css);
+@import url(../blocks/popup/__container/_type_delete-confirmed/popup__container_type_delete-confirmed.css);
+@import url(../blocks/popup/__input-button/_type_confirmation/popup__input-button_type_confirmation.css);
+@import url(../blocks/popup/__title/_type_confirmation/popup__title_type_confirmation.css);
 
 
 

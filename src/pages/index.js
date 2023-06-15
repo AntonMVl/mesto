@@ -16,6 +16,7 @@ import {
     inputChangeAvatar,
     popupChangeAvatarForm,
     popupDeleteConfirmation,
+    avatarImageButton,
 } from '../utils/constants.js'
 import Card from '../components/Сard.js';
 import FormValidator from '../components/FormValidator.js'
@@ -39,17 +40,23 @@ const userInfo = new UserInfo ({ nameSelector:userNameValue, jobSelector:userJob
 
 const renderCardList = new Section ({renderer: renderCard}, ".content__box-list");
 
-
 api.getCards().then((res) => {
     const userId = userInfo.getUserInfo().userId;
     const items = res.reverse();
     renderCardList.renderItems(items, userId)
     
-}).catch((error => console.error(`Ошибка при получении массива карточек или информации о пользователе ${error}`)))
+}).catch((error => console.error(`Ошибка получения массива карточек или информации о пользователе ${error}`)))
 
 api.getUser().then((res) => {
     userInfo.setUserInfo({ name: res.name, about: res.about, avatar: res.avatar, userId: res._id })
-    }).catch((error) => console.error(`Ошибка при загрузке данных с сервера - ${error}`));
+    }).catch((error) => console.error(`Ошибка загрузки данных с сервера - ${error}`));
+
+const userInfoFormValidation = new FormValidator(validationConfig, userInfoPopupForm);
+const newImgFormValidation = new FormValidator(validationConfig, popupAddNewImgForm);
+const avatarFormValidation = new FormValidator(validationConfig, popupChangeAvatarForm);
+avatarFormValidation.enableValidation();
+userInfoFormValidation.enableValidation();
+newImgFormValidation.enableValidation();
 
 const popupOpenImage = new PopupWithImage (popupImageOpen);
     popupOpenImage.setEventListeners();
@@ -77,7 +84,7 @@ popupUpdateAvatar.setEventListeners();
         newImgFormValidation.disableButton();
     });
     
-    avatarImage.addEventListener("click", () => {
+    avatarImageButton.addEventListener("click", () => {
         inputChangeAvatar.value = userInfo.getUserInfo().avatar;
         popupUpdateAvatar.open();
     })
@@ -85,7 +92,7 @@ popupUpdateAvatar.setEventListeners();
 
 function handleSubmitConfirmation ({card, cardId}) {
     api.deleteCard(cardId).then(() => {
-        card.removeCardElement();
+        card.removeCard();
         confirmPopup.close();
     })
         .catch((error) => console.error(`Ошибка при удалении карточки ${error}`))
@@ -93,24 +100,24 @@ function handleSubmitConfirmation ({card, cardId}) {
     }
 
 function handleFormAddNewImage(inputValues) {
-    api.addCard(inputValues.title, inputValues.link)
+    api.addCard(inputValues.name, inputValues.link)
     .then((newCard) => {
         renderCard({
             name: newCard.name, _id: newCard._id, link: newCard.link, likes: newCard.likes, owner: { _id: newCard.owner._id }
         }, newCard.owner._id);
         popupAddNewImg.close();
     })
-    .catch((error => console.error(`Ошибка при попытке создать новую карточку ${error}`)))
+    .catch((error => console.error(`Ошибка при попытке создать карточку ${error}`)))
     .finally(() => popupNewImageForm.setDefaultButtonText());
 }
 
 function handleSubmitSetInfo(inputValues) {
-    api.updateProfileInfo(inputValues.name, inputValues.about)
+    api.updateProfileInfo(inputValues.name, inputValues.job)
     .then((res) => {
         userInfo.setUserInfo({ name: res.name, about: res.about, avatar: res.avatar });
         popupUserInfo.close();
         })
-    .catch((error => console.error(`Ошибка при попытке редактировать профиль ${error}`)))
+    .catch((error => console.error(`Ошибка редактирования профиля ${error}`)))
     .finally(() => popupUserInfo.setDefaultButtonText());
 };
 
@@ -120,7 +127,7 @@ function handleEditAvatar(inputValues) {
         userInfo.setUserInfo({ name: res.name, about: res.about, avatar: res.avatar });
         popupUpdateAvatar.close();
         })
-    .catch((error => console.error(`Ошибка при попытке сменить аватар ${error}`)))
+    .catch((error => console.error(`Ошибка смены аватара ${error}`)))
     .finally(() => popupUpdateAvatar.setDefaultButtonText());
 }
 
@@ -131,13 +138,13 @@ function createCard(item, user) {
         () => { popupOpenImage.open(item) },
         confirmPopup.open,
         (cardId) => {
-            let itLiked = card.isLiked();
-            if (itLiked) {
+            let likeByMe = card.likeByMe();
+            if (likeByMe) {
                 api.deleteLike(cardId).then((res) => card.toggleButtonLike(res.likes))
-                .catch((error) => console.error(`Ошибка при снятии лайка ${error}`))
+                .catch((error) => console.error(`Ошибка снятия лайка ${error}`))
             } else {
             api.addLike(cardId).then((res) => card.toggleButtonLike(res.likes))
-            .catch((error) => console.error(`Ошибка при попытке поставить лайк ${error}`));
+            .catch((error) => console.error(`Ошибка попытки поставить лайк ${error}`));
             }
         },
         user
@@ -149,12 +156,7 @@ function renderCard (item, user) {
     const cardElement = createCard(item, user);
     renderCardList.addItem(cardElement);
 }
-const userInfoFormValidation = new FormValidator(validationConfig, userInfoPopupForm);
-const newImgFormValidation = new FormValidator(validationConfig, popupAddNewImgForm);
-const avatarFormValidation = new FormValidator(validationConfig, popupChangeAvatarForm);
-avatarFormValidation.enableValidation();
-userInfoFormValidation.enableValidation();
-newImgFormValidation.enableValidation();
+
 
 
 

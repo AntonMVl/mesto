@@ -13,8 +13,8 @@ class Card {
         this._getCard();
         this._insertCardContent();
         this._setEventListeners();
-        this._showBasketButton();
-        this._checkLikeStatus();
+        this._giveBasketButton();
+        this._checkingLikeStatus();
         return this._imageItem;
     }
 
@@ -34,21 +34,21 @@ class Card {
         this._imageCardPicture.alt = this._data.name;
     }
 
-    isLiked() {
+    likeByMe() {
         const myLike = this._likes.find((like) => {
         return like._id === this._user;
         })
     return myLike
     };
     
-    _checkLikeStatus() {
+    _checkingLikeStatus() {
         this._likes.forEach(item => {
             if (item._id === this._user) {
-                this._likeButton.classList.add('elements__like-icon_active');
+                this._likeButton.classList.add('content__like-img_type_active');
                 return
             }
         })
-        this._likeSet.textContent = this._likes.length;
+        this._likeBox.textContent = this._likes.length;
     }
     
     _setEventListeners() {
@@ -64,17 +64,16 @@ class Card {
     
     toggleButtonLike(likes) {
         this._likeBox.textContent = likes.length;
-        this._likes = likes;
         this._likeButton.classList.toggle('content__like-img_type_active');
     }
     
-    _showBasketButton() {
+    _giveBasketButton() {
         if (this._user === this._data.owner._id) {
         this._deleteButton.classList.add('content__delete-button-icon_type_visible');
         }
     }
     
-    removeCardElement() {
+    removeCard() {
         this._imageItem.remove();
         this._imageItem = null;
     }

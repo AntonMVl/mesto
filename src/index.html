@@ -12,14 +12,14 @@
             <img class="header__logo" src="<%=require('./images/icons/header-logo.svg')%>" alt="Место">
         </header>
         <section class="profile">
-            <img class="profile__image" src="<%=require('./images/user-image.jpg')%>" alt="Аватар">
+            <img class="profile__image" src="" alt="Аватар">
             <button class="profile__image-button" type="button"></button>
             <div class="profile__user-info">
                 <div class="profile__input-info">
-                    <h1 class="profile__name">Жак-Ив Кусто</h1>
+                    <h1 class="profile__name"></h1>
                     <button type="button" class="profile__editing-button link"><img class="profile__editing-img" src="<%=require('./images/icons/Vector.png')%>" alt="Редактирование профиля"></button>
                 </div>
-            <p class="profile__job-title">Исследователь океана</p>
+            <p class="profile__job-title"></p>
             </div>
             <button type="button" class="profile__content-button link"><img class="profile__content-img" src="<%=require('./images/icons/plus.png')%>" alt="Кнопка добавления контента"></button>
         </section>
@@ -77,30 +77,35 @@
             <h2 class="popup__image-title"></h2>
         </div>
     </section>
-    <section class="popup popup__type_change-avatar">
+    <section class="popup popup_type_change-avatar">
         <button type="button" class="popup__close"></button>    
         <form class="popup__form" name="change-avatar-container" method="post" novalidate>
             <h2 class="popup__title">Обновить аватар</h2>
             <fieldset class="popup__form-input-container">
                 <fieldset class="popup__input-container">
-                    <input id ="avatar" type="url" class="popup__form-input popup__form-input_avatar-name" autocomplete="off" required minlength="2" maxlength="30" name="link" placeholder="Ссылка на аватар">
+                    <input id ="avatar" type="url" class="popup__form-input popup__form-input_avatar-name" autocomplete="off" required name="avatar" placeholder="Ссылка на аватар">
+                    <span id="error-avatar" class="popup__error"></span>
                 </fieldset>
             </fieldset>
             <button type="submit" class="popup__input-button">Сохранить</button>
         </form>
     </section>
-    <section class="popup popup__type_delete-confirmed">
-        <button type="button" class="popup__close"></button>    
-        <h2 class="popup__title">Вы уверены?</h2>
-        <button type="submit" class="popup__input-button popup__input-button_type_confirmation">Да</button>
+    <section class="popup popup_type_delete-confirmed">
+        <div class="popup__container popup__container_type_delete-confirmed">
+            <button type="button" class="popup__close"></button>
+            <h2 class="popup__title popup__title_type_confirmation">Вы уверены?</h2>
+            <button type="submit" class="popup__input-button popup__input-button_type_confirmation">Да</button>
+        </div>
     </section>
     <template class="image__tamplate">
         <li class="content__box">
             <img class="content__image" src="/" alt="">
             <div class="content__info">
                 <h2 class="content__title"></h2>
-                <button type="button" class="content__link "><img class="content__like-img" src="<%=require('./images/icons/Vector.svg')%>" alt="Лайк"></button>
-                <p class="content__like-box"></p>
+                <div class="content__like-bar">
+                    <button type="button" class="content__link "><img class="content__like-img" src="<%=require('./images/icons/Vector.svg')%>" alt="Лайк"></button>
+                    <p class="content__like-box"></p>
+                </div>
             </div>
             <button class="content__delete-button"><img src="<%=require('./images/icons/Delete.svg')%>" alt="Удаление" class="content__delete-button-icon"></button>
         </li>
